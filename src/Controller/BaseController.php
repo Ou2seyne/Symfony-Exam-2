@@ -15,10 +15,4 @@ class BaseController extends AbstractController
         ]);
     }
 
-    #[Route('/liste-typecafe', name: 'app_liste')]
-    public function liste_typecafe(): Response
-    {
-        return $this->render('base/index.html.twig', [
-        ]);
-    }
 }

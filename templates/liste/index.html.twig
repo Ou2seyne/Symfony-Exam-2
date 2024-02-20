@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}{% block title %}{{parent()}}Liste des contacts{% endblock %}{% block body %}
+<div class="container-fluid">
+	<h1 class="text-center text-primary mt-4 pt-4 display-1 fw-bold">Liste des Type de Café</h1>
+	<div class="row justify-content-center">
+		<div class="col-12 col-md-8 bg-white p-4 m-0 text-primary">
+			<div class="table-responsive">
+				<table class="table table-hover">
+					<thead>
+						<tr class="fw-bold text-primary">
+							<th scope="col">
+								Designation
+							</th>
+							<th scope="col">
+								Origine
+							</th>
+							<th scope="col">
+							</th>
+							<th scope="col">
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for typecafe in typecafe %}
+						<tr class="{{ cycle(['table-primary','table-secondary'], loop.index0) }}">
+							<td>
+								{{ typecafe.designation |capitalize }}
+							</td>
+							<td>
+								{{ typecafe.origine |capitalize }}
+							</td>
+							<td><a href="{{path("app_modifier_type",{'id':typecafe.id})}}"><i class="bi bi-pen-fill
+text-dark"></i></a></td>
+<td><a
+href="{{path("app_supprimer_type",{'id':typecafe.id})}}"><i class="bi bi-trash-fill text-
+dark"></i></a></td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
